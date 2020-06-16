@@ -5,17 +5,18 @@ class admin:
     def __init__(self, Driver):
         self.driver = Driver
 
-    def click_admin(self):
-        self.driver.find_element_by_id('menu_admin_viewAdminModule').click()
-
-    def System_users(self):
-        username_system = self.driver.find_element_by_id('searchSystemUser_userName')
-        username_system.send_keys('robert craig')
+    def System_users(self, username_system, Employee_name):
+        self.driver.find_element_by_id('searchSystemUser_userName').send_keys(username_system)
         select_rol = Select(self.driver.find_element_by_id('searchSystemUser_userType'))
         select_rol.select_by_visible_text('ESS')
-        Employee_name = self.driver.find_element_by_id('searchSystemUser_employeeName_empName')
-        Employee_name.send_keys('Robert Craig')
+        self.driver.find_element_by_id('searchSystemUser_employeeName_empName').send_keys(Employee_name)
         Status = Select(self.driver.find_element_by_id('searchSystemUser_status'))
         Status.select_by_visible_text('Enabled')
 
+    def click_boton_search(self):
+        self.driver.find_element_by_id('searchBtn').click()
 
+#Sub opcion "Job"
+
+    def click_job(self):
+        self.driver.find_element_by_id('menu_admin_Job').click()
