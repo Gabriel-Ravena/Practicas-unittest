@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 
@@ -5,6 +6,7 @@ class Users:
 
     def __init__(self, Driver):
         self.driver = Driver
+        self.selectUserRole = (By.ID, 'searchSystemUser_userType')
 
     def txt_username(self, username):
        """
@@ -25,8 +27,8 @@ class Users:
         self.txt_username(username)
         self.btn_search()
 
-    def drd_user_role(self, user_role):
-        user_role = Select(self.driver.find_element_by_id('searchSystemUser_userType')).select_by_visible_text(user_role)
+    def drp_user_role(self, user_role):
+        Select(self.driver.find_element_by_id(*self.selectUserRole)).select_by_visible_text(user_role)
 
 
         #select_rol = Select(self.driver.find_element_by_id('searchSystemUser_userType'))
@@ -37,36 +39,11 @@ class Users:
 
 
 ##########Sub opcion "Job" ############
-    def click_job(self):
-        self.driver.find_element_by_id('menu_admin_Job').click()
 
-    def click_job_titles(self):
-        self.driver.find_element_by_id('menu_admin_viewJobTitleList').click()
 
-    def click_Pay_Grades(self):
-        self.driver.find_element_by_id('menu_admin_viewPayGrades').click()
 
-    def click_Employment_status(self):
-        self.driver.find_element_by_id('menu_admin_employmentStatus').click()
 
-    def click_Job_Categories(self):
-        self.driver.find_element_by_id('menu_admin_jobCategory').click()
 
-    def click_Work_Shifts(self):
-        self.driver.find_element_by_id('menu_admin_workShift').click()
 
 #ADD Job Title
 
-    def txt_titulo(self, titulo):
-        self.driver.find_element_by_id('jobTitle_jobTitle').send_keys(titulo)
-
-    def txt_descripcion(self, descripcion):
-        self.driver.find_element_by_id('jobTitle_jobDescription').send_keys(descripcion)
-
-    def txt_nota(self, nota):
-        self.driver.find_element_by_id('jobTitle_note').send_keys(nota)
-
-    def agregar_titulo(self, titulo, descripcion, nota):
-        self.txt_titulo(titulo)
-        self.txt_descripcion(descripcion)
-        self.txt_nota(nota)
