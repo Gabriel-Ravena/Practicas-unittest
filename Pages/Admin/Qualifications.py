@@ -4,10 +4,20 @@ class skills:
         self.driver = Driver
 
     def txt_name(self, name):
-        self.driver.find_element_by_id('skill_name').send_keys(name)
+        """
+        campo de texto para ingresar un nombre
+        :param name:
+        :return:
+        """
+        return self.driver.find_element_by_id('skill_name').send_keys(name)
 
     def txt_description(self, description):
-        self.driver.find_element_by_id('skill_description').send_keys(description)
+        """
+        campo de texto para ingresar una descripcion
+        :param description:
+        :return:
+        """
+        return self.driver.find_element_by_id('skill_description').send_keys(description)
 
 class education:
 
@@ -15,7 +25,12 @@ class education:
         self.driver = Driver
 
     def txt_level(self, level):
-        self.driver.find_element_by_id('education_name')
+        """
+        campo de texto para ingresar el nivel
+        :param level:
+        :return:
+        """
+        return self.driver.find_element_by_id('education_name').send_keys(level)
 
 class licenses:
 
@@ -23,7 +38,12 @@ class licenses:
         self.driver = Driver
 
     def txt_license_name(self, license):
-        self.driver.find_element_by_id('license_name').send_keys(license)
+        """
+        campo de texto para ingresar una licencia
+        :param license:
+        :return:
+        """
+        return self.driver.find_element_by_id('license_name').send_keys(license)
 
 class languages:
 
@@ -31,7 +51,12 @@ class languages:
         self.driver = Driver
 
     def txt_languages(self, language):
-        self.driver.find_element_by_id('language_name').send_keys(language)
+        """
+        campo de texto para ingresar un lenguaje
+        :param language:
+        :return:
+        """
+        return self.driver.find_element_by_id('language_name').send_keys(language)
 
 class membership:
 
@@ -39,4 +64,9 @@ class membership:
         self.driver = Driver
 
     def txt_membership(self, member):
-        self.driver.find_element_by_id('membership_name').send_keys(member)
+        """
+        campo de texto para ingresar un member
+        :param member:
+        :return:
+        """
+        return self.driver.find_element_by_id('membership_name').send_keys(member)

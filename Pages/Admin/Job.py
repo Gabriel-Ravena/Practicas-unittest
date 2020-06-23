@@ -110,7 +110,12 @@ class employmentStatus:
         self.driver = Driver
 
     def txt_employment_status(self, employment):
-        self.driver.find_element_by_id('empStatus_name').send_keys(employment)
+        """
+        campo de texto para ingresar un employment
+        :param employment:
+        :return:
+        """
+        return self.driver.find_element_by_id('empStatus_name').send_keys(employment)
 
     def agregar_employment_status(self, employment):
         self.txt_employment_status(employment)
@@ -122,7 +127,12 @@ class jobCategories:
         self.driver = Driver
 
     def txt_job_categories(self, categoria):
-        self.driver.find_element_by_id('jobCategory_name').send_keys(categoria)
+        """
+        campo de texto apara ingresar una categoria de trabajo
+        :param categoria:
+        :return:
+        """
+        return self.driver.find_element_by_id('jobCategory_name').send_keys(categoria)
 
     def agregar_categoria(self, categoria):
         self.txt_job_categories(categoria)
@@ -136,21 +146,48 @@ class worksShifts:
         self.selectEmployees = (By.ID, 'workShift_availableEmp')
 
     def txt_shifts_name(self):
-        self.driver.find_element_by_id('workShift_name').send_keys()
+        """
+        campo de texto para ingresar un shifts name
+        :return:
+        """
+        return self.driver.find_element_by_id('workShift_name').send_keys()
 
     def drp_from_work_hours(self, fromHours):
-        Select(self.driver.find_element_by_id(*self.selectFromHours)).select_by_visible_text(fromHours)
+        """
+        dropdown para seleccionar el comienzo de la hora de trabajo
+        :param fromHours:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectFromHours)).select_by_visible_text(fromHours)
 
     def drp_to_works_hours(self, ToHours):
-        Select(self.driver.find_element_by_id(*self.selectToHours)).select_by_visible_text(ToHours)
+        """
+        dropdown para seleccionar la hora en la que se termina de trabajar
+        :param ToHours:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectToHours)).select_by_visible_text(ToHours)
 
     def drp_available_employees(self, employees):
-        Select(self.driver.find_element_by_id(*self.selectEmployees)).select_by_visible_text(employees)
+        """
+        dropdown para seleccionar el employees
+        :param employees:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectEmployees)).select_by_visible_text(employees)
 
     def boton_assigne_employee(self):
+        """
+        click en el boton assigne employee
+        :return:
+        """
         self.driver.find_element_by_id('btnAssignEmployee').click()
 
     def boton_remove(self):
+        """
+        click en el boton remove
+        :return:
+        """
         self.driver.find_element_by_id('btnRemoveEmployee').click()
 
 

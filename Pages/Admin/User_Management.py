@@ -28,22 +28,16 @@ class Users:
         self.btn_search()
 
     def drp_user_role(self, user_role):
-        Select(self.driver.find_element_by_id(*self.selectUserRole)).select_by_visible_text(user_role)
-
-
-        #select_rol = Select(self.driver.find_element_by_id('searchSystemUser_userType'))
-        #select_rol.select_by_visible_text('ESS')
-        #self.driver.find_element_by_id('searchSystemUser_employeeName_empName').send_keys(Employee_name)
-        #Status = Select(self.driver.find_element_by_id('searchSystemUser_status'))
-        #Status.select_by_visible_text('Enabled')
-
-
-##########Sub opcion "Job" ############
+        """
+        selecciona un rol de usuario del dropdown
+        :param user_role:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectUserRole)).select_by_visible_text(user_role)
 
 
 
 
 
 
-#ADD Job Title
 

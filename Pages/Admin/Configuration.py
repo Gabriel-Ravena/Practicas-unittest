@@ -9,9 +9,19 @@ class EmailConfiguration:
 
 
     def txt_mail(self, email):
-        self.driver.find_element_by_id('emailConfigurationForm_txtMailAddress').send_keys(email)
+        """
+        campo de texzto para ingresar un email
+        :param email:
+        :return:
+        """
+        return self.driver.find_element_by_id('emailConfigurationForm_txtMailAddress').send_keys(email)
 
     def drp_method(self, metodo):
+        """
+        dropdown para seleccionar un metodo
+        :param metodo:
+        :return:
+        """
         Select(self.driver.find_element_by_id(*self.selectMethod)).select_by_visible_text(metodo)
 
 
@@ -23,8 +33,18 @@ class Localization:
         self.selectFormat = (By.ID, 'localization_default_date_format')
 
     def drp_localization_language(self, localization):
-        Select(self.driver.find_element_by_id(*self.selectLocalization)).select_by_visible_text(localization)
+        """
+        dropdown para seleccionar una localizacion y un lenguaje
+        :param localization:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectLocalization)).select_by_visible_text(localization)
 
     def drp_date_format(self, format):
-        Select(self.driver.find_element_by_id(*self.selectFormat)).select_by_visible_text(format)
+        """
+        dropdown para seleccionar el formato de la fecha
+        :param format:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectFormat)).select_by_visible_text(format)
 
