@@ -90,6 +90,9 @@ class jobTitles:
 
 class payGrades:
 
+    def __init__(self, Driver):
+        self.driver = Driver
+
     def txt_pay_grades(self, pay):
         """
         campo de texto para agregar el pay grades
@@ -103,6 +106,9 @@ class payGrades:
 
 class employmentStatus:
 
+    def __init__(self, Driver):
+        self.driver = Driver
+
     def txt_employment_status(self, employment):
         self.driver.find_element_by_id('empStatus_name').send_keys(employment)
 
@@ -112,6 +118,9 @@ class employmentStatus:
 
 class jobCategories:
 
+    def __init__(self, Driver):
+        self.driver = Driver
+
     def txt_job_categories(self, categoria):
         self.driver.find_element_by_id('jobCategory_name').send_keys(categoria)
 
@@ -119,6 +128,12 @@ class jobCategories:
         self.txt_job_categories(categoria)
 
 class worksShifts:
+
+    def __init__(self, Driver):
+        self.driver = Driver
+        self.selectFromHours = (By.ID, 'workShift_workHours_from')
+        self.selectToHours = (By.ID, 'workShift_workHours_to')
+        self.selectEmployees = (By.ID, 'workShift_availableEmp')
 
     def txt_shifts_name(self):
         self.driver.find_element_by_id('workShift_name').send_keys()
