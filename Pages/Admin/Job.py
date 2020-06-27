@@ -83,6 +83,8 @@ class jobTitles:
         :param nota:
         :return:
         """
+        self.click_job()
+        self.click_job_titles()
         self.txt_titulo(titulo)
         self.txt_descripcion(descripcion)
         self.txt_nota(nota)

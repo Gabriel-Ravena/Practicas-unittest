@@ -7,6 +7,7 @@ class Users:
     def __init__(self, Driver):
         self.driver = Driver
         self.selectUserRole = (By.ID, 'searchSystemUser_userType')
+        self.selectStatus = (By.ID, 'searchSystemUser_status')
 
     def txt_username(self, username):
        """
@@ -33,10 +34,29 @@ class Users:
         :param user_role:
         :return:
         """
-        return Select(self.driver.find_element_by_id(*self.selectUserRole)).select_by_visible_text(user_role)
+        Select(self.driver.find_element(*self.selectUserRole)).select_by_visible_text(user_role)
 
+    def select_user_role(self, user_role):
+        self.drp_user_role(user_role)
+        self.btn_search()
 
+    def txt_employee_name(self, employee):
+        """
+        Campo de texto para ingresar un employee name
+        :param employee:
+        :return:
+        """
+        return self.driver.find_element_by_id('searchSystemUser_employeeName_empName').send_keys(employee)
 
+    def buscar_usuario_employee_name(self, employee):
+        self.txt_employee_name(employee)
+        self.btn_search()
+
+    def select_status(self, status):
+        Select(self.driver.find_element(*self.selectStatus)).select_by_visible_text(status)
+
+    def filtrar_usuarios_por_status(self, status):
+        self.select_status(status)
 
 
 

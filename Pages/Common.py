@@ -22,3 +22,7 @@ class Locator:
 
 #Botones
 
+    def click_add(self):
+        self.driver.find_element_by_id('btnAdd').click()
+
+

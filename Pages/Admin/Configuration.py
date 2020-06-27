@@ -22,7 +22,7 @@ class EmailConfiguration:
         :param metodo:
         :return:
         """
-        Select(self.driver.find_element_by_id(*self.selectMethod)).select_by_visible_text(metodo)
+        return Select(self.driver.find_element_by_id(*self.selectMethod)).select_by_visible_text(metodo)
 
 
 class Localization:
@@ -47,4 +47,36 @@ class Localization:
         :return:
         """
         return Select(self.driver.find_element_by_id(*self.selectFormat)).select_by_visible_text(format)
+
+class socialMediaAuthentication:
+
+    def __init__(self, Driver):
+        self.driver = Driver
+        self.selectType = (By.ID, 'openIdProvider_type')
+
+    def drp_type(self, type):
+        """
+        dropdown para seleccionar un type
+        :param type:
+        :return:
+        """
+        return Select(self.driver.find_element_by_id(*self.selectType)).select_by_visible_text(type)
+
+    def txt_name(self, name):
+        """
+        campo de texto para ingresar un name
+        :param name:
+        :return:
+        """
+        return self.driver.find_element_by_id('openIdProvider_name').send_keys(name)
+
+    def txt_url(self, url):
+        """
+        campo de texto para ingresar una url
+        :param url:
+        :return:
+        """
+        return self.driver.find_element_by_id('openIdProvider_url').send_keys(url)
+
+
 
